@@ -1,0 +1,19 @@
+.formulario_add{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.container{
+    padding: 1rem;
+    min-height: 70vh;
+}
+
+.formulario_add__boton{
+    padding: 1rem;
+    color: white;
+    background-color: green;
+    align-self: flex-end;
+    border: none;
+    border-radius: 5px;
+}

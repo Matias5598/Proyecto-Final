@@ -1,0 +1,56 @@
+{% extends './admin_base.html' %}
+
+{% block customCss %}
+    <link rel="stylesheet" href="../static/css/admin/admin_tablas.css">
+{% endblock customCss %}
+
+{% block main %}
+    <section class="tablas">
+        <div class="container">
+            <table class="container__tabla">
+                <thead class="tabla_head">
+                    <tr class="tabla__fila">
+                        <td class="tabla__columna">Usuarios</td>
+                    </tr>
+                </thead>
+                <tbody class="tabla_body">
+                    <tr class="tabla__fila">
+                        <td class="tabla__columna"><a href="{{ url_for('listar',variable='users') }}">Lista de usuarios</a></td>
+                        <td class="tabla__columna"><a href="{{ url_for('agregar',lista='users') }}">Add</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <table class="container__tabla">
+                <thead class="tabla_head">
+                    <tr class="tabla__fila">
+                        <td class="tabla__columna">Articulos</td>
+                    </tr>
+                </thead>
+                <tbody class="tabla_body">
+                    <tr class="tabla__fila">
+                        <td class="tabla__columna"><a href="{{ url_for('listar',variable='articles') }}">Lista de articulos</a></td>
+                        <td class="tabla__columna"><a href="{{ url_for('agregar',lista='articles') }}">Add</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <table class="container__tabla">
+                <thead class="tabla_head">
+                    <tr class="tabla__fila">
+                        <td class="tabla__columna">Categorias</td>
+                    </tr>
+                </thead>
+                <tbody class="tabla_body">
+                    <tr class="tabla__fila">
+                        <td class="tabla__columna"><a href="{{ url_for('listar',variable='categories') }}">Lista de categorias</a></td>
+                        <td class="tabla__columna"><a href="{{ url_for('agregar',lista='categories') }}">Add</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+{% endblock %}

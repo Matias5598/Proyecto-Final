@@ -1,0 +1,24 @@
+{% extends './admin_base.html' %}
+
+{% block customCss %}
+    <link rel="stylesheet" href="{{url_for('static', filename='../static/css/admin/admin_modify.css')}}">
+{% endblock customCss %}
+
+{% block main %}
+    <div class="modify_container">
+        <h1>{{datos[1]}}</h1>
+        <div class="container">
+            <form action="/admin/list/{{ datos[1] }}/modify/{{ datos[0] }}" method="post" class="formulario_modificar">
+                {% for indice in indices %}
+                    <label for="{{campos[indice]}}">{{campos[indice]}}:</label>
+                    <input type="text" name="{{ campos[indice] }}" id="{{campos[indice]}}" value="{{ registros[indice] }}">
+                {% endfor%}
+                <input type="submit" value="Guardar" class="formulario_modificar__boton">
+            </form>
+        </div>
+    </div>
+
+
+{% endblock main %}
+
+

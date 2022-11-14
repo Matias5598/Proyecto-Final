@@ -1,0 +1,24 @@
+{% extends './base.html' %}
+
+{% block title %}Categorías{% endblock %}
+
+{% block customCss %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/categorias/categorias.css')}}">
+{% endblock %}
+
+{% block main %}
+
+    <section class="categorias">
+        <h2 class="categorias__titulo titulo__seccion">Categorías</h2>
+        <ul class="categorias__lista">
+            {% for categoria in categorias %}
+                <li>
+                    <a class="categorias__lista--link" href="{{ url_for('categoria', id_categoria = categoria[0] ) }}">{{ categoria[1] }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>    
+
+
+
+{% endblock %}

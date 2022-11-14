@@ -1,0 +1,35 @@
+{% extends './base.html' %}
+
+{% block title %}{{ categoria[0] }}{% endblock %}
+
+{% block customCss %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/categoria_selected/categoria_section.css')}}">
+{% endblock %}
+
+{% block main %}
+
+<section class="categoria_articulos">
+    <h2 class="categoria_articulos__titulo">{{ categoria[0] }}</h2>
+    <ul class="categoria_articulos__lista">
+        {% for articulo in articulos %}
+            <li class="categoria_articulos__lista--item">
+                <div class="categoria_articulos__item--imagen">
+                    <img src="{{articulo[6]}}" alt="imagen del articulo" class="imagen_articulo">
+                </div>
+                <div class="categoria_articulos__item--descripcion">
+                    <h3 class="categoria_articulos__item--titulo">{{articulo[1]}}</h3>
+                    <p class="categoria_articulos__item--autor"><i>Fecha: {{articulo[4]}}</i></p>
+                    {% for autor in autores %}
+                        {% if articulo[3] == autor[0]  %}
+                            <p class="destacados__item--autor">By: {{autor[1]}}</p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</section>
+
+
+
+{% endblock %}

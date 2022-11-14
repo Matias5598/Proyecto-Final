@@ -1,0 +1,65 @@
+{% extends './base.html' %}
+
+{% block title %}BLOG-Inicio{% endblock %}
+
+{% block customCss %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index/presentacion.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index/destacados.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index/articulos.css')}}">
+{% endblock %}
+       
+{% block main %}
+        <section class="presentacion">
+            <h2 class="presentacion__titulo">Proyecto Final de Matias Fossati</h2>
+
+            <p class="presentacion__texto">Esta aplicación web permite la lectura, el posteo y la eliminación de artículos. Para poder publicar un artículo, los usuarios deben registrarse en la página.</p>
+        </section>
+        <section class="destacados">
+            <h2 class="destacados__titulo">Artículos Destacados</h2>
+            <div class="destacados__container">
+                <ul class="destacados__lista">
+                {% for articulo in articulos %}
+                    {% if articulo[7] != 0  %}
+                        <li class="destacados__lista--item">
+                            <div class="destacados__item--imagen">
+                                <img src="{{articulo[6]}}" alt="imagen del articulo" class="imagen_articulo">
+                            </div>
+                            <div class="destacados__item--descripcion">
+                                <h3 class="destacados__item--titulo">{{articulo[1]}}</h3> 
+                                <p class="destacados__item--fecha"><i>Fecha:{{ articulo[5] }}</i></p>
+                                {% for autor in autores %}
+                                    {% if articulo[3] == autor[0]  %}
+                                        <p class="destacados__item--autor">By: {{autor[1]}}</p>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+        </section>
+        <section class="ultimos_articulos">
+            <h2 class="ultimos_articulos__titulo">Ultimos Artículos</h2>
+            <ul class="ultimos_articulos__lista">
+                {% for articulo in articulos %}
+                    <li class="ultimos_articulos__lista--item">
+                        <div class="ultimos_articulos__item--imagen">
+                            <img src="{{articulo[6]}}" alt="imagen del articulo" class="imagen_articulo">
+                        </div>
+                        <div class="ultimos_articulos__item--descripcion">
+                            <h3 class="ultimos_articulos__item--titulo">{{articulo[1]}}</h3>
+                            <p class="ultimos_articulos__item--autor"><i>Fecha: {{articulo[4]}}</i></p>
+                            {% for autor in autores %}
+                                    {% if articulo[3] == autor[0]  %}
+                                        <p class="destacados__item--autor">By: {{autor[1]}}</p>
+                                    {% endif %}
+                            {% endfor %}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends './base.html' %}
+
+{% block title %}Contactenos{% endblock %}
+
+{% block customCss %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contacto/contacto.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contacto/contacto_formulario.css')}}">
+{% endblock %}
+
+{% block main %}
+
+    <section class="contacto">
+        <h2 class="contacto__titulo">Contáctenos</h2>
+        <form action="" class="formulario">
+            <label for="nombreapellido">Nombre y Apellido</label>
+            <input type="text" id="nombreapellido" class="formulario__input" required>
+        
+            <label for="email">Email</label>
+            <input type="email" id="email" class="formulario__input" required placeholder="email@dominio.com">
+        
+            <label for="telefono">Telefono (Opcional)</label>
+            <input type="tel" id="telefono" class="formulario__input">
+
+            <label for="mensaje">Mensaje</label>
+            <textarea name="" id="mensaje" cols="70" rows="10" class="formulario__input" required></textarea>
+            
+            <input type="submit" value="Registrarse" class="formulario__boton" id="formulario__boton">
+        </form>
+    </section>
+
+
+{% endblock %}

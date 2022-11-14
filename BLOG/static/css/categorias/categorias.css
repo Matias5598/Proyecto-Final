@@ -1,0 +1,23 @@
+.categorias{
+    text-align: center;
+}
+
+
+.categorias__titulo{
+    font-size: 3rem;
+    color: var(--color-naranja);
+    margin-bottom: 2rem;
+}
+
+.categorias__lista{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.categorias__lista--link{
+    font-size: 1.5rem;
+    color: var(--color-blanco);
+    margin-bottom: 1rem;
+}
+

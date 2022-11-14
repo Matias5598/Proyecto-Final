@@ -1,0 +1,15 @@
+.boton_eliminar{
+    align-self: flex-end;
+    color: white;
+    background-color: red;
+    border: none;
+    padding: 1rem;
+    border-radius: 5px;
+    font-weight: 700;
+
+}
+
+.boton_eliminar:hover{
+    transform: scale(1.1);
+    transition: 1s;
+}

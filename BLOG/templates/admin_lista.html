@@ -1,0 +1,31 @@
+{% extends './admin_base.html' %}
+
+{% block customCss %}
+<link rel="stylesheet" href="{{ url_for('static',filename='../static/css/admin/admin_lista.css')}}">
+{% endblock customCss %}
+
+{% block main %}
+
+    <section class="lista">
+        <div class="lista__container" >
+            <table class="lista__tabla">
+                <thead class="lista__titulo">
+                    <tr>
+                        <td>{{ variable }}</td>
+                    </tr>
+                </thead>
+                <tbody class="lista__contenido">
+                    {% for registro in registros %}
+                    <tr class="lista__fila">
+                        <td class="lista__columna">{{ registro[0] }}</td>
+                        <td class="lista__columna">{{ registro[1] }}</td>
+                        <td class="lista__columna"><a href="{{ url_for('modificar',lista=variable, id=registro[0]) }}">Modificar</a></td>
+                        <td class="lista__columna"><a href="{{ url_for('borrar',lista=variable, id=registro[0]) }}">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+{% endblock %}

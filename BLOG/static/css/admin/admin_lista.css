@@ -1,0 +1,13 @@
+.lista{
+    min-height: 80vh;
+    padding-top: 5vh;
+}
+
+.lista__container{
+    max-height: 60vh;
+    background-color: darkcyan;
+}
+
+.lista__columna{
+    width: 25vw;
+}

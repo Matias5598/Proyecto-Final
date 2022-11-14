@@ -1,0 +1,19 @@
+:root{
+    --color-blanco: #fdfdfd;
+    --color-naranja: rgb(209, 131, 35);
+
+    --background-color: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,121,116,1) 93%);
+}
+
+
+body{
+    padding: .5rem;
+    font-family: 'Open Sans', sans-serif;
+    background: var(--background-color)
+    
+}
+
+main{
+    height: auto;
+    padding: 2rem 0;
+}

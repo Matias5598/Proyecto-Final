@@ -1,0 +1,19 @@
+{% extends './admin_base.html' %}
+
+{% block customCss %}
+<link rel="stylesheet" href="{{url_for('static', filename='../static/css/admin/admin_delete.css')}}">
+{% endblock customCss %}
+    
+{% block main %}
+    <h2>{{datos[1]}}</h2>
+    <ul class="lista__registros">
+    {% for indice in indices %}
+
+        <li><p>{{campos[indice]}}: {{registro[indice]}}</p></li>
+
+    {% endfor %}
+    </ul>
+    <form action="/admin/list/{{ datos[1] }}/delete/{{ datos[0] }}" method="post">
+        <input type="submit" value="Eliminar" class="boton_eliminar">
+    </form>
+{% endblock %}

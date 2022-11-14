@@ -1,0 +1,14 @@
+.ingreso{
+    height: 58vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.ingreso__titulo{
+    font-size: 4rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--color-naranja);
+}

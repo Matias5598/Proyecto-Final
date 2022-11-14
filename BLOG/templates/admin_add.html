@@ -1,0 +1,21 @@
+{% extends './admin_base.html' %}
+
+{% block customCss %}
+<link rel="stylesheet" href="{{url_for('static', filename='../static/css/admin/admin_add.css')}}">
+{% endblock customCss %}
+
+{% block main %}
+<div class="add_container">
+    <h1>Agregar a: <i>{{datos}}</i>.</h1>
+    <div class="container">
+        <form action="/admin/list/{{ datos }}/add" method="post" class="formulario_add">
+            {% for indice in indices %}
+                <label for="{{campos[indice]}}">{{campos[indice]}}:</label>
+                <input type="text" name="{{ campos[indice] }}" id="{{campos[indice]}}">
+            {% endfor%}
+            <input type="submit" value="Guardar" class="formulario_add__boton">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

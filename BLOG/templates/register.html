@@ -1,0 +1,35 @@
+{% extends './base.html' %}
+
+{% block title %}Registrarse{% endblock %}
+
+{% block customCss %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register/register.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register/register_formulario.css')}}">
+{% endblock %}
+    
+{% block main %}
+
+    <section class="registro">
+        <h2 class="registro__titulo">Registrese</h2>
+        <div class="registro__container">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                    {% for message in messages %}
+                        <p class="formulario__mensaje">{{ message }}</p>
+                    {% endfor %}
+            {% endif %}
+        {% endwith %}
+            <form action="/register" method="post" class="formulario" id="formulario">
+                <input type="text" class="formulario__input" placeholder="Ingrese su nombre" name='nombre' id="name" required>
+                <input type="email" class="formulario__input" placeholder="Ingrese su email" name='email' id="email" required>
+                <input type="password" class="formulario__input" placeholder="Ingrese una contraseña (8 caracteres)" name='password' id="password" required minlength="8">
+                <input type="password" class="formulario__input" placeholder="Reingrese la contraseña" name='password2' id="password2" required>
+                <input type="text" class="formulario__input" placeholder="Ingrese su pais de residencia" name='pais' id="pais" required>
+                <input type="submit" value="Registrarse" class="formulario__boton" id="formulario__boton">
+            </form>
+        </div>
+
+        <script src="../static/js/register/validacionFormulario.js"></script>
+    </section>
+
+{% endblock %}
